@@ -1,0 +1,612 @@
+openapi: 3.0.0
+info:
+  title: Telemax Telematics APIs v1.0
+  version: 1.0.0
+  description: Telemax API Documentation
+servers:
+  - url: https://tracking.telemax.com.au
+paths:
+  /token:
+    parameters: []
+    post:
+      summary: Get Access_Token via Username
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep it as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/GetCompanies:
+    parameters: []
+    post:
+      summary: GetCompanies
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/GetLastPositionData/vehicleId:
+    parameters: []
+    post:
+      summary: GetLastPositionData
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/GetPositionData:
+    parameters: []
+    post:
+      summary: GetPositionData
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: Telemax ID
+          example: vehicleId
+          schema:
+            type: string
+        - name: from
+          in: query
+          required: true
+          description: From Date and Time
+          example: dateFrom
+          schema:
+            type: string
+        - name: to
+          in: query
+          required: true
+          description: To Date and Time
+          example: dateTo
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: true
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: true
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/sendDoorLock:
+    parameters: []
+    post:
+      summary: SendDoorLock
+      parameters:
+        - name: id
+          in: query
+          required: false
+          example: vehicleId
+          schema:
+            type: string
+        - name: isLock
+          in: query
+          required: false
+          example: isLock
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/GetAllLastPositionData:
+    parameters: []
+    post:
+      summary: GetAllLastPositionData
+      parameters:
+        - name: id
+          in: query
+          required: false
+          example: companyID
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/UpdateLocation:
+    parameters: []
+    post:
+      summary: UpdateLocation
+      parameters:
+        - name: id
+          in: query
+          required: false
+          example: vehicleID
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/ChangeOdometer:
+    parameters: []
+    post:
+      summary: ChangeOdometer
+      parameters:
+        - name: id
+          in: query
+          required: false
+          example: vehicleID
+          schema:
+            type: string
+        - name: odometer
+          in: query
+          required: false
+          example: Odometer
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/LastTimeOnline:
+    parameters: []
+    post:
+      summary: LastTimeOnline
+      parameters:
+        - name: id
+          in: query
+          required: false
+          example: vehicleID
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/GetAlerts:
+    parameters: []
+    post:
+      summary: GetAlerts
+      parameters:
+        - name: compId
+          in: query
+          required: false
+          example: CompanyID
+          schema:
+            type: string
+        - name: from
+          in: query
+          required: false
+          example: dateFrom
+          schema:
+            type: string
+        - name: num
+          in: query
+          required: false
+          example: NumberOfAlert
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/SetAlertAsRead:
+    parameters: []
+    post:
+      summary: SetAlertAsRead
+      parameters:
+        - name: alertId
+          in: query
+          required: false
+          example: AlertID
+          schema:
+            type: string
+        - name: isRead
+          in: query
+          required: false
+          example: isRead
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/SetAllAlertAsRead:
+    parameters: []
+    post:
+      summary: SetAllAlertAsRead
+      parameters:
+        - name: Id
+          in: query
+          required: false
+          description: Company ID
+          example: companyID
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/SetVehicleName:
+    parameters: []
+    post:
+      summary: SetVehicleName
+      parameters:
+        - name: id
+          in: query
+          required: false
+          description: Telamx ID
+          example: vehicleID
+          schema:
+            type: string
+        - name: name
+          in: query
+          required: false
+          example: NewVehicleName
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/GetReplay:
+    parameters: []
+    post:
+      summary: GetReplay
+      parameters:
+        - name: id
+          in: query
+          required: false
+          description: Telamx ID
+          example: vehicleId
+          schema:
+            type: string
+        - name: from
+          in: query
+          required: false
+          description: From Date and Time
+          example: dateFrom
+          schema:
+            type: string
+        - name: to
+          in: query
+          required: false
+          description: To Date and Time
+          example: dateTo
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/GetNearest:
+    parameters: []
+    post:
+      summary: 'GetNearest '
+      parameters:
+        - name: lat
+          in: query
+          required: false
+          example: Latitude
+          schema:
+            type: string
+        - name: lng
+          in: query
+          required: false
+          example: Longitude
+          schema:
+            type: string
+        - name: compId
+          in: query
+          required: false
+          example: CompanyID
+          schema:
+            type: string
+        - name: num
+          in: query
+          required: false
+          example: NumberOfVehicle
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/WebApi/AverageTripScore:
+    parameters: []
+    post:
+      summary: Get Average Trip Score for Vehicle
+      parameters:
+        - name: deviceId
+          in: query
+          required: false
+          description: Device ID
+          example: device/vehicleId
+          schema:
+            type: string
+        - name: intervalType
+          in: query
+          required: false
+          description: |-
+            Interval. Choose between this, or the date range (from, to)
+            0: Today
+            1: Yesterday
+            2: Last 3 days
+            3: Last 7 days
+          example: intervalType
+          schema:
+            type: string
+        - name: from
+          in: query
+          required: false
+          description: >-
+            Date range start. Choose between the date range (from, to) and
+            interval.
+          example: dateTimeFrom
+          schema:
+            type: string
+        - name: to
+          in: query
+          required: false
+          description: >-
+            Date range end. Choose between the date range (from, to) and
+            interval.
+          example: dateTimeTo
+          schema:
+            type: string
+        - name: Content-Type
+          in: header
+          required: false
+          description: Standard and must keep as it is.
+          example: application/x-www-form-urlencoded
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: Bearer your_token
+          example: Bearer {token}
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
